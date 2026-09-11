@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Robot" Id="{396ce13a-f994-4fc0-84ae-663917308fa1}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Robot
+VAR_OUTPUT
+	taskFailed : BOOL;
+END_VAR
+VAR
+	cmd AT %Q* : TaskList; //server writes directly to this
+	moveDist AT %Q* : WORD;
+	
+	statusReg AT %I* : UINT;
+	
+	rangefinderReading AT %I* : BYTE;
+	
+	bAtHome AT %I* : BOOL;
+	bAtPos1 AT %I* : BOOL;
+	bAtPos2 AT %I* : BOOL;	
+	bMovedUp AT %I* : BOOL;
+	bMovedDown AT %I* : BOOL;
+	
+	bMoving AT %I* : BOOL;
+	
+	timeout : TON;
+	step : (IDLE, EXECUTE, FINISHED);
+	done : BOOL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE step OF
+	IDLE:
+		IF cmd <> TaskList.IDLE THEN
+			taskFailed := FALSE;
+			step := EXECUTE;
+		END_IF
+		
+	EXECUTE: //perform task
+		timeout(IN:= , PT:= T#5S, Q=> , ET=> );
+		timeout.IN := TRUE;
+		
+		IF timeout.Q THEN
+			timeout.IN := FALSE;
+			taskFailed := TRUE;
+			step := FINISHED;
+			RETURN;
+		END_IF
+		
+		bAtHome := statusReg = TaskList.HOME;
+		bAtPos1 := statusReg = TaskList.POS1;
+		bAtPos2 := statusReg = TaskList.POS2;
+		bMovedUp := statusReg = TaskList.MOVE_UP;
+		bMovedDown := statusReg = TaskList.MOVE_DOWN;
+		
+		done := statusReg = cmd;
+
+		IF done THEN
+			timeout.IN := FALSE;
+			step := FINISHED;
+		END_IF
+	
+	FINISHED: //task done, reset
+		cmd := 0;
+		moveDist := 0;
+		step := IDLE;
+END_CASE]]></ST>
+    </Implementation>
+    <LineIds Name="Robot">
+      <LineId Id="178" Count="0" />
+      <LineId Id="436" Count="0" />
+      <LineId Id="438" Count="0" />
+      <LineId Id="442" Count="0" />
+      <LineId Id="439" Count="0" />
+      <LineId Id="437" Count="0" />
+      <LineId Id="440" Count="0" />
+      <LineId Id="179" Count="0" />
+      <LineId Id="388" Count="7" />
+      <LineId Id="384" Count="0" />
+      <LineId Id="451" Count="1" />
+      <LineId Id="378" Count="1" />
+      <LineId Id="381" Count="1" />
+      <LineId Id="457" Count="1" />
+      <LineId Id="218" Count="1" />
+      <LineId Id="456" Count="0" />
+      <LineId Id="220" Count="6" />
+      <LineId Id="44" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

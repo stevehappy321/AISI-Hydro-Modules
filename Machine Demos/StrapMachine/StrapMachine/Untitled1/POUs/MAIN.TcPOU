@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="MAIN" Id="{b80a0c4b-c6af-42e3-9ea6-1e5c8f9c9f0a}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	manual : BOOL; //:= TRUE;
+	
+	error AT %I* : BOOL;
+	ready AT %I* : BOOL;
+	//busy AT %I* : BOOL;
+	done AT %I* : BOOL;
+	home AT %I* : BOOL;
+	
+	execute AT %Q* : BOOL;
+	enable AT %Q* : BOOL;
+	reset AT %Q* : BOOL;
+
+	start : BOOL;
+	
+	timeout : TON;
+	hold : TON;
+	
+	step : (SETUP, STRAP, WAIT);
+	
+	i : INT;
+END_VAR
+VAR CONSTANT
+	pulseWidth : TIME := T#500MS;
+	delayTime : TIME := T#500MS;
+	
+	failTime : TIME := T#30S;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[hold(IN:= , PT:= delayTime, Q=> , ET=> );
+timeout(IN:= step > SETUP, PT:= failTime, Q=> , ET=> );
+
+IF timeout.Q THEN
+	timeout.IN := FALSE;
+	step := SETUP;
+END_IF
+
+IF manual THEN
+	RETURN;
+END_IF
+
+CASE step OF	
+	SETUP:
+		//reset := NOT reset;
+		//enable := NOT enable;
+		
+		IF NOT error THEN
+			reset := FALSE;
+			enable := TRUE;
+			
+			IF start THEN
+				start := FALSE;
+				step := STRAP;
+			END_IF
+			
+		ELSE
+			reset := NOT reset;
+			enable := NOT enable;
+		END_IF
+	
+	STRAP:
+		IF NOT execute THEN
+			execute := TRUE;
+			RETURN;
+		END_IF
+		
+		IF execute AND NOT home THEN
+			execute := FALSE;
+			step := WAIT;
+		END_IF
+		
+	WAIT:
+		IF home THEN
+			hold.IN := TRUE;
+			enable := FALSE;
+			execute := FALSE;
+		END_IF
+		
+		IF hold.Q THEN
+			hold.IN := FALSE;
+			i := i + 1;
+			step := 0;			
+		END_IF
+END_CASE]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="520" Count="21" />
+      <LineId Id="590" Count="0" />
+      <LineId Id="542" Count="3" />
+      <LineId Id="619" Count="0" />
+      <LineId Id="621" Count="0" />
+      <LineId Id="620" Count="0" />
+      <LineId Id="546" Count="1" />
+      <LineId Id="650" Count="0" />
+      <LineId Id="548" Count="0" />
+      <LineId Id="652" Count="0" />
+      <LineId Id="651" Count="0" />
+      <LineId Id="549" Count="4" />
+      <LineId Id="589" Count="0" />
+      <LineId Id="572" Count="1" />
+      <LineId Id="575" Count="0" />
+      <LineId Id="581" Count="1" />
+      <LineId Id="576" Count="2" />
+      <LineId Id="588" Count="0" />
+      <LineId Id="587" Count="0" />
+      <LineId Id="579" Count="1" />
+      <LineId Id="152" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,6 @@
+Strap machine module
+
+3 states
+  SETUP - reset errors, enable, and wait for start command
+  STRAP - execute pulse, wait for home position
+  WAIT - short delay after home position reached

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="TaskList" Id="{59d9b1bb-51f4-4fe9-83b4-dc92163a69c6}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE TaskList :
+(
+	IDLE, 
+	HOME:=21,
+	POS1, 
+	POS2, 
+	MOVE_UP, 
+	MOVE_DOWN
+)WORD;
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

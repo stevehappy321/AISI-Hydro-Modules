@@ -1,0 +1,731 @@
+<div id="Robot1Panel" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-zindex="1" data-tchmi-height-mode="Content">
+    <div id="robot1Control" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="225" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="920" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+        <div id="robot1_Home" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="120" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-text="Move Robot 1 to HOME" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="120" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-family="times-new-roman" data-tchmi-zindex="1">
+
+            <script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+                {
+                "topLeft": 50.0,
+                "topRight": 50.0,
+                "bottomLeft": 50.0,
+                "bottomRight": 50.0,
+                "topLeftUnit": "%",
+                "topRightUnit": "%",
+                "bottomLeftUnit": "%",
+                "bottomRightUnit": "%"
+                }
+            </script>
+
+
+
+
+
+            <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                {
+                "color": "rgba(0, 0, 0, 1)"
+                }
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                {
+                "angle": 0.0,
+                "stopPoints": [
+                {
+                "color": "rgba(177, 132, 26, 1)",
+                "stop": "0%"
+                },
+                {
+                "color": "rgba(255, 187, 0, 1)",
+                "stop": "50%"
+                },
+                {
+                "color": "rgba(255, 138, 0, 1)",
+                "stop": "100%"
+                }
+                ]
+                }
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+                {
+                "color": "rgba(0, 0, 0, 1)"
+                }
+            </script>
+        
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "robot1_Home.onMouseClick",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "symbolExpression": "%s%PLC1.MAIN.robot1::cmd%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "value": 0
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.MAIN.robot1::cmd%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "value": 21
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+        <div id="robot1_Pos1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="120" data-tchmi-height-unit="px" data-tchmi-left="210" data-tchmi-left-unit="px" data-tchmi-text="Move Robot 1 to Position 1" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="120" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-family="times-new-roman" data-tchmi-zindex="1">
+            <script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+                {
+                "topLeft": 50.0,
+                "topRight": 50.0,
+                "bottomLeft": 50.0,
+                "bottomRight": 50.0,
+                "topLeftUnit": "%",
+                "topRightUnit": "%",
+                "bottomLeftUnit": "%",
+                "bottomRightUnit": "%"
+                }
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                {
+                "angle": 0.0,
+                "stopPoints": [
+                {
+                "color": "rgba(177, 132, 26, 1)",
+                "stop": "0%"
+                },
+                {
+                "color": "rgba(255, 187, 0, 1)",
+                "stop": "50%"
+                },
+                {
+                "color": "rgba(255, 138, 0, 1)",
+                "stop": "100%"
+                }
+                ]
+                }
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                {
+                "color": "rgba(0, 0, 0, 1)"
+                }
+            </script>
+        
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "robot1_Pos1.onMouseClick",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "symbolExpression": "%s%PLC1.MAIN.robot1::cmd%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "value": 0
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.MAIN.robot1::cmd%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "value": 22
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+        <div id="robot1_Pos2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="120" data-tchmi-height-unit="px" data-tchmi-left="400" data-tchmi-left-unit="px" data-tchmi-text="Move Robot 1 to Position 2" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="120" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-family="times-new-roman" data-tchmi-zindex="1">
+            <script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+                {
+                "topLeft": 50.0,
+                "topRight": 50.0,
+                "bottomLeft": 50.0,
+                "bottomRight": 50.0,
+                "topLeftUnit": "%",
+                "topRightUnit": "%",
+                "bottomLeftUnit": "%",
+                "bottomRightUnit": "%"
+                }
+            </script>
+            <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                {
+                "angle": 0.0,
+                "stopPoints": [
+                {
+                "color": "rgba(177, 132, 26, 1)",
+                "stop": "0%"
+                },
+                {
+                "color": "rgba(255, 187, 0, 1)",
+                "stop": "50%"
+                },
+                {
+                "color": "rgba(255, 138, 0, 1)",
+                "stop": "100%"
+                }
+                ]
+                }
+            </script>
+
+
+            <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                {
+                "color": "rgba(0, 0, 0, 1)"
+                }
+            </script>
+        
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "robot1_Pos2.onMouseClick",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "symbolExpression": "%s%PLC1.MAIN.robot1::cmd%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "value": 0
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.MAIN.robot1::cmd%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "value": 23
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+        <div id="robot1_Up" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="120" data-tchmi-height-unit="px" data-tchmi-left="590" data-tchmi-left-unit="px" data-tchmi-text="Move Robot 1 Up" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="120" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-family="times-new-roman" data-tchmi-zindex="1">
+            <script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+                {
+                "topLeft": 50.0,
+                "topRight": 50.0,
+                "bottomLeft": 50.0,
+                "bottomRight": 50.0,
+                "topLeftUnit": "%",
+                "topRightUnit": "%",
+                "bottomLeftUnit": "%",
+                "bottomRightUnit": "%"
+                }
+            </script>
+            <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                {
+                "angle": 0.0,
+                "stopPoints": [
+                {
+                "color": "rgba(177, 132, 26, 1)",
+                "stop": "0%"
+                },
+                {
+                "color": "rgba(255, 187, 0, 1)",
+                "stop": "50%"
+                },
+                {
+                "color": "rgba(255, 138, 0, 1)",
+                "stop": "100%"
+                }
+                ]
+                }
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                {
+                "color": "rgba(0, 0, 0, 1)"
+                }
+            </script>
+        
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "robot1_Up.onMouseClick",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "symbolExpression": "%s%PLC1.MAIN.robot1::cmd%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "value": 0
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.MAIN.robot1::moveDist%/s%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%ctrl%robot1MoveUpDist::Value%/ctrl%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.MAIN.robot1::cmd%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "value": 24
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+        <div id="robot1_Down" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="120" data-tchmi-height-unit="px" data-tchmi-left="780" data-tchmi-left-unit="px" data-tchmi-text="Move Robot 1 Down" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="120" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-weight="Bold" data-tchmi-text-font-family="times-new-roman" data-tchmi-zindex="1">
+            <script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+                {
+                "topLeft": 50.0,
+                "topRight": 50.0,
+                "bottomLeft": 50.0,
+                "bottomRight": 50.0,
+                "topLeftUnit": "%",
+                "topRightUnit": "%",
+                "bottomLeftUnit": "%",
+                "bottomRightUnit": "%"
+                }
+            </script>
+            <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+                {
+                "angle": 0.0,
+                "stopPoints": [
+                {
+                "color": "rgba(177, 132, 26, 1)",
+                "stop": "0%"
+                },
+                {
+                "color": "rgba(255, 187, 0, 1)",
+                "stop": "50%"
+                },
+                {
+                "color": "rgba(255, 138, 0, 1)",
+                "stop": "100%"
+                }
+                ]
+                }
+            </script>
+
+            <script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+                {
+                "color": "rgba(0, 0, 0, 1)"
+                }
+            </script>
+        
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Robot1_Down.onMouseClick",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%s%PLC1.MAIN.robot1::cmd%/s%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+          "value": 25
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "robot1_Down.onMouseClick",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "symbolExpression": "%s%PLC1.MAIN.robot1::cmd%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "value": 0
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.MAIN.robot1::moveDist%/s%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%ctrl%robot1MoveDownDist::Value%/ctrl%"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.MAIN.robot1::cmd%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:server#/definitions/PLC1.TaskList",
+                  "value": 25
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+        <div id="robot1MoveUpDist" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiSpinboxInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="590" data-tchmi-left-unit="px" data-tchmi-max-value="15" data-tchmi-min-value="5" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="180" data-tchmi-top-unit="px" data-tchmi-value-horizontal-alignment="Center" data-tchmi-width="90" data-tchmi-width-unit="px" data-tchmi-button-position="BothRight" data-tchmi-zindex="1" data-tchmi-value="5">
+            <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                {
+                "top": 3,
+                "right": 3,
+                "bottom": 3,
+                "left": 3
+                }
+            </script>
+
+        </div>
+        <div id="TcHmiContainer_2" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="50" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+        </div>
+        <div id="TcHmiContainer_3" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="340" data-tchmi-left-unit="px" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="50" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+        </div>
+        <div id="TcHmiContainer_4" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="530" data-tchmi-left-unit="px" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="50" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+        </div>
+        <div id="TcHmiContainer_5" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="720" data-tchmi-left-unit="px" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="50" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+        </div>
+        <div id="TcHmiTextblock_6" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="690" data-tchmi-left-unit="px" data-tchmi-text="cm" data-tchmi-top="180" data-tchmi-top-unit="px" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
+        
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+</div>
+        <div id="TcHmiTextblock_7" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="880" data-tchmi-left-unit="px" data-tchmi-text="cm" data-tchmi-top="180" data-tchmi-top-unit="px" data-tchmi-width="20" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
+        
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-text-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+</div>
+        <div id="robot1MoveDownDist" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiSpinboxInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="780" data-tchmi-left-unit="px" data-tchmi-max-value="15" data-tchmi-min-value="5" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="180" data-tchmi-top-unit="px" data-tchmi-value-horizontal-alignment="Center" data-tchmi-width="90" data-tchmi-width-unit="px" data-tchmi-button-position="BothRight" data-tchmi-zindex="1" data-tchmi-value="5">
+            <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                {
+                "top": 3,
+                "right": 3,
+                "bottom": 3,
+                "left": 3
+                }
+            </script>
+
+        </div>
+        <div id="TcHmiContainer_7" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="10" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-top="160" data-tchmi-top-unit="px" data-tchmi-width="880" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+        </div>
+
+
+
+        <script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 20.0,
+  "topRight": 20.0,
+  "bottomLeft": 20.0,
+  "bottomRight": 20.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+
+        
+
+        <script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+            {
+            "left": "Solid",
+            "right": "Solid",
+            "top": "Solid",
+            "bottom": "Solid"
+            }
+        </script>
+    
+
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(195, 211, 233, 1)"
+}
+</script>
+</div>
+    <div id="robot1Status" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="282" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="245" data-tchmi-top-unit="px" data-tchmi-width="470" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+        <div id="TcHmiTextblock" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Robot 1 at HOME" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
+        </div>
+        <div id="TcHmiTextblock_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Robot 1 at Position 1" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
+        </div>
+        <div id="TcHmiTextblock_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Robot 1 at Position 2" data-tchmi-top="82" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
+        </div>
+        <div id="TcHmiTextblock_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Robot 1 in motion" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
+        </div>
+        <div id="TcHmiNumericInput" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="216" data-tchmi-top-unit="px" data-tchmi-value="%s%PLC1.MAIN.robot1::rangefinderReading%/s%" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-zindex="1" data-tchmi-value-horizontal-alignment="Right">
+            <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                {
+                "top": 3,
+                "right": 3,
+                "bottom": 3,
+                "left": 3
+                }
+            </script>
+
+
+            <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+                [
+                {
+                "event": "TcHmiNumericInput.onValueChanged",
+                "actions": [
+                {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiNumericInput::Value%/ctrl%",
+                "value": {
+                "objectType": "Symbol",
+                "valueType": "tchmi:general#/definitions/String",
+                "symbolExpression": "%s%PLC1.MAIN.robot1::rangefinderReading%/s%"
+                },
+                "asyncWait": true
+                }
+                ]
+                }
+                ]
+            </script>
+        </div>
+        <div id="TcHmiTextblock_4" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Robot 1 Rangefinder Reading" data-tchmi-top="180" data-tchmi-top-unit="px" data-tchmi-width="200" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
+        </div>
+        <div id="TcHmiTextblock_5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-text="cm" data-tchmi-top="216" data-tchmi-top-unit="px" data-tchmi-width="60" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
+        </div>
+        <div id="TcHmiTextblock_8" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="260" data-tchmi-left-unit="px" data-tchmi-text="Sensor 01 Status" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
+        </div>
+        <div id="robot1AtHomeLed" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="26" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+        </div>
+        <div id="robot1AtPos1Led" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-top="46" data-tchmi-top-unit="px" data-tchmi-width="26" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+        </div>
+        <div id="robot1AtPos2Led" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-top="82" data-tchmi-top-unit="px" data-tchmi-width="26" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+        </div>
+        <div id="robot1MovingLed" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="150" data-tchmi-left-unit="px" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="26" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+        </div>
+        <div id="robot1Sensor01StatusLed" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="400" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="26" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+        </div>
+    
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 10.0,
+  "topRight": 10.0,
+  "bottomLeft": 10.0,
+  "bottomRight": 10.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+<div id="robot1TaskFailedLed" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="400" data-tchmi-left-unit="px" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="26" data-tchmi-width-unit="px" data-tchmi-zindex="1">
+
+</div>
+<div id="TcHmiTextblock_9" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="260" data-tchmi-left-unit="px" data-tchmi-text="Robot 1 Task Failed" data-tchmi-top="118" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-zindex="1">
+</div>
+<div id="TcHmiTextblock_10" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="260" data-tchmi-left-unit="px" data-tchmi-text="Robot 1 Status Register" data-tchmi-top="180" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center">
+</div>
+<div id="TcHmiNumericInput_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="260" data-tchmi-left-unit="px" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="216" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-zindex="1" data-tchmi-value-horizontal-alignment="Right" data-tchmi-value="%s%PLC1.MAIN.robot1::statusReg%/s%">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+                {
+                "top": 3,
+                "right": 3,
+                "bottom": 3,
+                "left": 3
+                }
+            </script>
+
+
+            <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiNumericInput_1.onValueChanged",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiNumericInput_1::Value%/ctrl%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%s%PLC1.MAIN.robot1::statusReg%/s%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+        </div>
+</div>
+<div id="TcHmi_Controls_Beckhoff_TcHmiImage" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="268" data-tchmi-height-unit="px" data-tchmi-left="995" data-tchmi-left-unit="px" data-tchmi-src="Imports/Images/krc-flipped.png" data-tchmi-top="245" data-tchmi-top-unit="px" data-tchmi-width="228" data-tchmi-width-unit="px" data-tchmi-creator-locked="True">
+</div>
+<div id="robot1MovingDown" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="51" data-tchmi-height-unit="px" data-tchmi-left="930" data-tchmi-left-unit="px" data-tchmi-src="Imports/Images/2-2-arrow-png-pic.png" data-tchmi-top="352" data-tchmi-top-unit="px" data-tchmi-width="80" data-tchmi-width-unit="px" data-tchmi-creator-locked="True" data-tchmi-visibility="Hidden">
+
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-transform" type="application/json">
+[
+  {
+    "transformType": "Rotate",
+    "angle": 90.0,
+    "angleUnit": "deg"
+  }
+]
+</script>
+</div>
+<div id="robot1MovingUp" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="51" data-tchmi-height-unit="px" data-tchmi-left="927" data-tchmi-left-unit="px" data-tchmi-src="Imports/Images/2-2-arrow-png-pic.png" data-tchmi-top="266" data-tchmi-top-unit="px" data-tchmi-width="80" data-tchmi-width-unit="px" data-tchmi-creator-locked="True" data-tchmi-visibility="Hidden" data-tchmi-zindex="2">
+<script data-tchmi-target-attribute="data-tchmi-transform" type="application/json">
+[
+  {
+    "transformType": "Rotate",
+    "angle": -90.0,
+    "angleUnit": "deg"
+  }
+]
+</script>
+</div>
+</div>
